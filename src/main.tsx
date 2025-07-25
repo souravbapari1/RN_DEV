@@ -1,14 +1,16 @@
-import { NavigationContainer, useNavigation } from '@react-navigation/native';
-import React, { useLayoutEffect } from 'react';
+import {NavigationContainer, useNavigation} from '@react-navigation/native';
+import React, {useLayoutEffect} from 'react';
 import BootSplash from 'react-native-bootsplash';
 
 import HomeScreen from './screens/HomeScreen';
 import SheetScreen from './screens/SheetScreen';
-import { ROUTES, Stack } from './constants/route';
-import { Button } from 'react-native';
-
+import {ROUTES, Stack} from './constants/route';
+import {Button} from 'react-native';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {StackParamList} from '../types/routes';
+type Props = NativeStackScreenProps<StackParamList, typeof ROUTES.TABS.HOME>;
 const HomeHeaderLeft = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<Props['navigation']>();
   return (
     <Button
       title="Go to Sheet"
@@ -19,7 +21,7 @@ const HomeHeaderLeft = () => {
 
 export default function MainApp() {
   useLayoutEffect(() => {
-    BootSplash.hide({ fade: true });
+    BootSplash.hide({fade: true});
   }, []);
 
   return (
@@ -28,14 +30,16 @@ export default function MainApp() {
         initialRouteName={ROUTES.STACK.HOME}
         screenOptions={{
           headerShadowVisible: false,
+          headerShown: false,
           headerTitleAlign: 'center',
-          contentStyle: { backgroundColor: '#fff' },
-        }}
-      >
+          contentStyle: {backgroundColor: '#fff'},
+        }}>
         <Stack.Screen
           name={ROUTES.STACK.HOME}
           component={HomeScreen}
           options={{
+            headerTitle: 'Home',
+
             headerLeft: () => <HomeHeaderLeft />,
           }}
         />
