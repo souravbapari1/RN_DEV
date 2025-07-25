@@ -1,9 +1,14 @@
 import {View, Text} from 'react-native';
-import React from 'react';
+import React, { useLayoutEffect } from 'react';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import MapView, {Callout, Marker} from 'react-native-maps';
+import BootSplash from "react-native-bootsplash";
 
 const App = () => {
+  useLayoutEffect(() => {
+    // This is where you can set up any navigation options or other layout effects
+           BootSplash.hide({ fade: true });
+  }, []);
   return (
     <GestureHandlerRootView style={{flex: 1}}>
       <MapView
@@ -24,11 +29,9 @@ const App = () => {
             <Text style={{color: 'white'}}>Custom Marker</Text>
           </View>
           <Callout>
-            <View style={{width: 150, padding: 10}}>
-              <Text style={{fontWeight: 'bold', color: 'black'}}>
-                Callout Title
-              </Text>
-              <Text style={{color: 'gray'}}>Callout Description</Text>
+            <View>
+              <Text>Callout Title</Text>
+              <Text>Callout Description</Text>
             </View>
           </Callout>
         </Marker>
