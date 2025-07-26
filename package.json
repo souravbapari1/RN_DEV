@@ -14,11 +14,13 @@
     "android:build-debug": "cd android && ./gradlew assembleDebug",
     "android:install-debug": "cd android && ./gradlew installDebug",
     "android:aab": "cd android && ./gradlew bundleRelease",
-    "assets": "node ./scripts/assets.js"
+    "assets": "node ./scripts/assets.js",
+    "export-android": "mkdir -p android/output && react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/output/index.android.bundle --assets-dest android/output  && cd android && find output -type f | zip index.android.bundle.zip -@ && cd .. && rm -rf android/output",
+    "export-ios": "mkdir -p ios/output && react-native bundle --platform ios --dev false --entry-file index.js --bundle-output ios/output/main.jsbundle --assets-dest ios/output && cd ios && find output -type f | zip main.jsbundle.zip -@ && cd .. && rm -rf ios/output"
   },
   "dependencies": {
     "@gorhom/bottom-sheet": "4.6.4",
-    "@react-native-async-storage/async-storage": "^2.2.0",
+    "@react-native-async-storage/async-storage": "2.2.0",
     "@react-native-masked-view/masked-view": "0.3.2",
     "@react-navigation/bottom-tabs": "7.4.2",
     "@react-navigation/drawer": "7.5.3",
@@ -29,10 +31,11 @@
     "lucide-react-native": "0.525.0",
     "react": "18.3.1",
     "react-native": "0.76.9",
+    "react-native-blob-util": "0.22.2",
     "react-native-bootsplash": "6.3.10",
     "react-native-gesture-handler": "2.25.0",
-    "react-native-gifted-charts": "1.4.63",
     "react-native-maps": "1.14.0",
+    "react-native-ota-hot-update": "1.1.9",
     "react-native-reanimated": "3.19.0",
     "react-native-safe-area-context": "5.5.2",
     "react-native-screens": "4.13.1",
