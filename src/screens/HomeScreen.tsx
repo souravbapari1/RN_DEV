@@ -20,7 +20,38 @@ export default function HomeScreen({navigation, route}: Props) {
         barStyle="dark-content"
       />
       <Armchair />
-     
+      <MapView
+        style={{flex: 1}}
+        zoomEnabled={true}
+        showsUserLocation={true}
+        mapType="hybrid"
+        loadingEnabled={true}
+        showsTraffic={true}>
+        <Marker
+          coordinate={{latitude: 37.78825, longitude: -122.4324}}
+          title="Marker Title"
+          description="Marker Description"
+          flat>
+          <View
+            style={{
+              width: 50,
+              height: 50,
+              backgroundColor: 'red',
+              borderRadius: 25,
+            }}>
+            <Text style={{color: 'white', textAlign: 'center', lineHeight: 50}}>
+              1
+            </Text>
+          </View>
+
+          <Callout>
+            <View style={{width: 150, padding: 10}}>
+              <Text style={{fontWeight: 'bold'}}>Marker Callout</Text>
+              <Text>This is a callout for the marker.</Text>
+            </View>
+          </Callout>
+        </Marker>
+      </MapView>
     </SafeAreaView>
   );
 }
