@@ -8,6 +8,7 @@ import {ROUTES, Stack} from './constants/route';
 import {Button} from 'react-native';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {StackParamList} from '../types/routes';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 type Props = NativeStackScreenProps<StackParamList, typeof ROUTES.TABS.HOME>;
 const HomeHeaderLeft = () => {
   const navigation = useNavigation<Props['navigation']>();
@@ -22,6 +23,7 @@ const HomeHeaderLeft = () => {
 export default function MainApp() {
   useLayoutEffect(() => {
     BootSplash.hide({fade: true});
+    AsyncStorage.setItem('my-key', 'value');
   }, []);
 
   return (
