@@ -25,6 +25,7 @@ export default function HomeScreen({navigation, route}: Props) {
         zoomEnabled={true}
         showsUserLocation={true}
         mapType="hybrid"
+        provider='google'
         loadingEnabled={true}
         showsTraffic={true}>
         <Marker

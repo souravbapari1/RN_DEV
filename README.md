@@ -119,13 +119,7 @@ npm run android:clean
 ### Generate Boot Splash
 
 ```bash
-npx react-native-bootsplash generate svgs/logo.svg 
-  --platforms=android,ios,web 
-  --background=FFFFFF 
-  --logo-width=130 
-  --assets-output=assets/bootsplash 
-  --flavor=main 
-  --html=public/index.html
+npx react-native-bootsplash generate svgs/logo.svg --platforms=android,ios,web --background=FFFFFF --logo-width=130 --assets-output=assets/bootsplash --flavor=main --html=public/index.html
 ```
 
 ### Export Bundles

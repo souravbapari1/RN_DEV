@@ -14,9 +14,19 @@
     "android:build-debug": "cd android && ./gradlew assembleDebug",
     "android:install-debug": "cd android && ./gradlew installDebug",
     "android:aab": "cd android && ./gradlew bundleRelease",
+    "ios:build": "xcodebuild -workspace ios/AwesomeProject.xcworkspace -scheme AwesomeProject -configuration Release -derivedDataPath ios/build -sdk iphoneos",
+    "ios:archive": "xcodebuild archive -workspace ios/AwesomeProject.xcworkspace -scheme AwesomeProject -archivePath ios/build/AwesomeProject.xcarchive -sdk iphoneos",
+    "ios:export": "xcodebuild -exportArchive -archivePath ios/build/AwesomeProject.xcarchive -exportOptionsPlist ios/exportOptions.plist -exportPath ios/build",
+    "ios:build-debug": "xcodebuild -workspace ios/AwesomeProject.xcworkspace -scheme AwesomeProject -configuration Debug -derivedDataPath ios/build -sdk iphonesimulator",
+    "ios:clean": "xcodebuild clean -workspace ios/AwesomeProject.xcworkspace -scheme AwesomeProject -configuration Release -sdk iphoneos",
+    "pod:install": "cd ios && pod install",
+    "pod:update": "cd ios && pod update",
+    "pod:clean": "cd ios && pod deintegrate && pod clean",
+    "clean": "react-native clean",
     "assets": "node ./scripts/assets.js",
-    "export-android": "mkdir -p android/output && react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/output/index.android.bundle --assets-dest android/output  && cd android && find output -type f | zip index.android.bundle.zip -@ && cd .. && rm -rf android/output",
-    "export-ios": "mkdir -p ios/output && react-native bundle --platform ios --dev false --entry-file index.js --bundle-output ios/output/main.jsbundle --assets-dest ios/output && cd ios && find output -type f | zip main.jsbundle.zip -@ && cd .. && rm -rf ios/output"
+    "export:android": "mkdir -p android/output && react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/output/index.android.bundle --assets-dest android/output  && cd android && find output -type f | zip index.android.bundle.zip -@ && cd .. && rm -rf android/output",
+    "export:ios": "mkdir -p ios/output && react-native bundle --platform ios --dev false --entry-file index.js --bundle-output ios/output/main.jsbundle --assets-dest ios/output && cd ios && find output -type f | zip main.jsbundle.zip -@ && cd .. && rm -rf ios/output",
+    "setup": "npm install && npm run pod:install && npm run assets"
   },
   "dependencies": {
     "@gorhom/bottom-sheet": "4.6.4",
