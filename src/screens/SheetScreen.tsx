@@ -16,10 +16,12 @@ const SheetScreen = () => {
   return (
     <GestureHandlerRootView style={styles.container}>
       <BottomSheet
-        ref={bottomSheetRef}
+   
+              ref={bottomSheetRef}
+              
         snapPoints={useMemo(() => ['25%', '50%', '90%'], [])}
         onChange={handleSheetChanges}>
-        <BottomSheetView style={styles.contentContainer}>
+        <BottomSheetView style={styles.contentContainer} >
           <Text>Awesome 🎉</Text>
         </BottomSheetView>
       </BottomSheet>
@@ -30,11 +32,13 @@ const SheetScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'grey',
+        backgroundColor: 'green',
+    
   },
   contentContainer: {
     flex: 1,
-    padding: 36,
+      padding: 36,
+   
     alignItems: 'center',
   },
 });

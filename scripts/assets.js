@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const IMAGES_DIR = path.resolve(__dirname, '../assets');
-const OUTPUT_FILE = path.resolve(__dirname, '../constants/assets.ts');
+const OUTPUT_FILE = path.resolve(__dirname, '../src/constants/assets.ts');
 
 const validExtensions = ['.png', '.jpg', '.jpeg', '.webp', '.json'];
 

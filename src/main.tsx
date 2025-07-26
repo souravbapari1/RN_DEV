@@ -30,7 +30,7 @@ export default function MainApp() {
         initialRouteName={ROUTES.STACK.HOME}
         screenOptions={{
           headerShadowVisible: false,
-          headerShown: false,
+          headerShown: true,
           headerTitleAlign: 'center',
           contentStyle: {backgroundColor: '#fff'},
         }}>
