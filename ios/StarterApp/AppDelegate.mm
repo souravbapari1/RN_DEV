@@ -1,11 +1,9 @@
 #import "AppDelegate.h"
-
+#import <GoogleMaps/GoogleMaps.h>
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
 #import "RNBootSplash.h" // Splash screen
-#import "RNhotupdate.h"  // OTA hot update
-#import <GoogleMaps/GoogleMaps.h>
-
+#import "RNhotupdate.h"  // OTA hot updat
 
 @implementation AppDelegate
 

@@ -17,9 +17,10 @@ end
 
 target 'StarterApp' do
   config = use_native_modules!
-  pod 'react-native-maps', :path => '../node_modules/react-native-maps'
-  pod 'react-native-google-maps', :path => '../node_modules/react-native-maps'
-  pod 'GoogleMaps', '7.4.0'
+  pod 'react-native-maps', :path => '../node_modules/react-native-maps' , :modular_headers => true
+  pod 'react-native-google-maps', :path => '../node_modules/react-native-maps' , :modular_headers => true
+  pod 'GoogleMaps', '7.4.0' ,  :modular_headers => true
+  pod 'Google-Maps-iOS-Utils', '4.2.2'
 
   use_react_native!(
     :path => config[:reactNativePath],
