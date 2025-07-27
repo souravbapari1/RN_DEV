@@ -17,6 +17,10 @@ end
 
 target 'StarterApp' do
   config = use_native_modules!
+  pod 'react-native-maps', :path => '../node_modules/react-native-maps'
+  pod 'react-native-google-maps', :path => '../node_modules/react-native-maps'
+
+
 
   use_react_native!(
     :path => config[:reactNativePath],

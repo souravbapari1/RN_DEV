@@ -3,4 +3,8 @@
 
 @interface AppDelegate : RCTAppDelegate
 
+// ✅ Background task identifier
+@property (nonatomic, assign) UIBackgroundTaskIdentifier taskIdentifier;
+
+
 @end

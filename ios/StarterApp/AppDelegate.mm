@@ -4,14 +4,16 @@
 #import <React/RCTRootView.h>
 #import "RNBootSplash.h" // Splash screen
 #import "RNhotupdate.h"  // OTA hot update
+#import <GoogleMaps/GoogleMaps.h>
+
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  [GMSServices provideAPIKey:@"AIzaSyCmYtIFIyNsdNtMTyRSUxVbH6hQX7l80jA"];
   self.moduleName = @"StarterApp";
   self.initialProps = @{};
+  [GMSServices provideAPIKey:@"AIzaSyCmYtIFIyNsdNtMTyRSUxVbH6hQX7l80jA"];
 
   return [super application:application didFinishLaunchingWithOptions:launchOptions];
 }
