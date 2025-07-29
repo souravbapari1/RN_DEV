@@ -1,10 +1,11 @@
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import {StatusBar, Text, View} from 'react-native';
+import {Image, StatusBar, Text, View} from 'react-native';
 import {StackParamList} from '../../types/routes';
 import {ROUTES} from '../constants/route';
 import MapView, {Callout, Marker} from 'react-native-maps';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import { Armchair } from 'lucide-react-native';
+import {Armchair} from 'lucide-react-native';
+import {assets} from '../constants/assets';
 
 type Props = NativeStackScreenProps<StackParamList, typeof ROUTES.TABS.HOME>;
 export default function HomeScreen({navigation, route}: Props) {
@@ -20,12 +21,13 @@ export default function HomeScreen({navigation, route}: Props) {
         barStyle="dark-content"
       />
       <Armchair />
+      <Image source={assets['logo']} />
       <MapView
         style={{flex: 1}}
         zoomEnabled={true}
         showsUserLocation={true}
         mapType="hybrid"
-        provider='google'
+        provider="google"
         loadingEnabled={true}
         showsTraffic={true}>
         <Marker
