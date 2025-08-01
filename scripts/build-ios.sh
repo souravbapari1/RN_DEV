@@ -7,7 +7,7 @@ CONFIGURATION="Release"
 
 # === PATHS ===
 ROOT_DIR=$(pwd)
-IOS_DIR="${ROOT_DIR}/ios"
+IOS_DIR="../${ROOT_DIR}/../ios"
 BUILD_DIR="${IOS_DIR}/build"
 ARCHIVE_PATH="${BUILD_DIR}/${APP_NAME}.xcarchive"
 EXPORT_PATH="${BUILD_DIR}"

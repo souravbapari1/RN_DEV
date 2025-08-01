@@ -3,7 +3,7 @@
 # === CONFIGURATION ===
 APP_NAME="MyApp"  # Optional, for logs only
 ROOT_DIR=$(pwd)
-ANDROID_DIR="${ROOT_DIR}/android"
+ANDROID_DIR="${ROOT_DIR}/../android"
 GRADLEW="${ANDROID_DIR}/gradlew"
 OUTPUT_DIR_AAB="${ANDROID_DIR}/app/build/outputs/bundle/release"
 OUTPUT_DIR_APK="${ANDROID_DIR}/app/build/outputs/apk/release"

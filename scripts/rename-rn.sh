@@ -17,7 +17,7 @@ fi
 
 # === Step 3: Clean Android ===
 echo "🧹 Cleaning Android build..."
-cd android && ./gradlew clean && cd ..
+cd ../android && ./gradlew clean && cd ..
 
 # === Step 4: Clean iOS ===
 if [ -d "ios" ]; then
