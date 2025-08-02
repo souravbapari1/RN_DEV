@@ -1,14 +1,16 @@
 import {NavigationContainer, useNavigation} from '@react-navigation/native';
-import React, {useLayoutEffect} from 'react';
+import React, {Suspense, useLayoutEffect} from 'react';
 import BootSplash from 'react-native-bootsplash';
 
-import HomeScreen from './screens/HomeScreen';
-import SheetScreen from './screens/SheetScreen';
+const HomeScreen = React.lazy(() => import('./screens/HomeScreen'));
+const SheetScreen = React.lazy(() => import('./screens/SheetScreen'));
+
 import {ROUTES, Stack} from './constants/route';
-import {Button} from 'react-native';
+import {Button, Text, View} from 'react-native';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {StackParamList} from '../types/routes';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import ScreenLoader from './Wrapper/ScreenLoader';
 type Props = NativeStackScreenProps<StackParamList, typeof ROUTES.TABS.HOME>;
 const HomeHeaderLeft = () => {
   const navigation = useNavigation<Props['navigation']>();
@@ -38,14 +40,25 @@ export default function MainApp() {
         }}>
         <Stack.Screen
           name={ROUTES.STACK.HOME}
-          component={HomeScreen}
+          children={(props: any) => (
+            <ScreenLoader>
+              <HomeScreen {...props} />
+            </ScreenLoader>
+          )}
           options={{
             headerTitle: 'Home',
 
             headerLeft: () => <HomeHeaderLeft />,
           }}
         />
-        <Stack.Screen name={ROUTES.STACK.SHEET} component={SheetScreen} />
+        <Stack.Screen
+          name={ROUTES.STACK.SHEET}
+          children={(props: any) => (
+            <ScreenLoader>
+              <SheetScreen {...props} />
+            </ScreenLoader>
+          )}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

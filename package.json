@@ -41,11 +41,13 @@
     "react-native-blob-util": "0.22.2",
     "react-native-bootsplash": "6.3.10",
     "react-native-gesture-handler": "2.25.0",
+    "react-native-linear-gradient": "2.8.3",
     "react-native-maps": "1.14.0",
     "react-native-ota-hot-update": "1.1.9",
     "react-native-reanimated": "3.19.0",
     "react-native-safe-area-context": "5.5.2",
     "react-native-screens": "4.13.1",
+    "react-native-shimmer-placeholder": "2.0.9",
     "react-native-svg": "15.12.0"
   },
   "devDependencies": {
