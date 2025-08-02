@@ -1,4 +1,4 @@
-import {View, Text} from 'react-native';
+import {View, Text, ActivityIndicator} from 'react-native';
 import React, {Suspense} from 'react';
 import ErrorBoundary from './ErrorBoundary';
 
@@ -9,7 +9,7 @@ const ScreenLoader = (props: any) => {
         fallback={
           <View
             style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-            <Text>Loading...</Text>
+            <ActivityIndicator size="large" />
           </View>
         }>
         {props.children}

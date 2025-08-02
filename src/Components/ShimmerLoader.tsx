@@ -6,7 +6,7 @@ import {
 
 const ShimmerPlaceHolder = createShimmerPlaceholder(LinearGradient);
 
-import React from 'react';
+import React, { memo } from 'react';
 
 const ShimmerLoader = (props: ShimmerPlaceholderProps) => {
   return (
@@ -19,4 +19,4 @@ const ShimmerLoader = (props: ShimmerPlaceholderProps) => {
   );
 };
 
-export default ShimmerLoader;
+export default memo(ShimmerLoader);

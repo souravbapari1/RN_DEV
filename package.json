@@ -40,6 +40,7 @@
     "react-native": "0.76.9",
     "react-native-blob-util": "0.22.2",
     "react-native-bootsplash": "6.3.10",
+    "react-native-fast-image": "8.6.3",
     "react-native-gesture-handler": "2.25.0",
     "react-native-linear-gradient": "2.8.3",
     "react-native-maps": "1.14.0",

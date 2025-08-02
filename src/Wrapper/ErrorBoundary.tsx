@@ -1,21 +1,20 @@
 // ErrorBoundary.tsx
 
-import React, {Component, ReactNode, ErrorInfo} from 'react';
+import React, { Component, ErrorInfo, ReactNode } from 'react';
 import {
-  View,
-  Text,
-  StyleSheet,
+  DevSettings,
   ScrollView,
+  StyleSheet,
+  Text,
   TouchableOpacity,
-  Platform,
+  View
 } from 'react-native';
-import {DevSettings} from 'react-native';
+import { explainAICodeError } from '../lib/ai';
 
 const ErrorReporting = {
   logErrorToMyService: (error: Error, errorInfo: ErrorInfo) => {
-    console.log('🚨 Logged Error:', error);
-    console.log('🧱 Stack Trace:', errorInfo);
-    // Hook your logging service here (e.g., Sentry)
+    console.warn('🚨 Logged Error:', error);
+    explainAICodeError(error.message + errorInfo.componentStack);
   },
 };
 
@@ -137,7 +136,7 @@ const styles = StyleSheet.create({
     color: '#999',
     backgroundColor: '#f5f5f5',
     padding: 10,
-      borderRadius: 4,
+    borderRadius: 4,
     overflow: 'scroll',
   },
   button: {
