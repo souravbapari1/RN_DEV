@@ -41,6 +41,16 @@ A modern React Native application built with TypeScript, featuring type-safe nav
 
 ## ⚡ Quick Start
 
+
+```
+echo 'export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64' >> ~/.bashrc
+echo 'export PATH=$JAVA_HOME/bin:$PATH' >> ~/.bashrc
+source ~/.bashrc
+
+```
+
+https://oblador.github.io/react-native-vector-icons/
+
 ### Prerequisites
 
 - Node.js (>= 16)

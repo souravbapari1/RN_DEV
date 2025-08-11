@@ -1,31 +1,27 @@
-import {NavigationContainer, useNavigation} from '@react-navigation/native';
-import React, {Suspense, useLayoutEffect} from 'react';
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
+import React, { useLayoutEffect } from 'react';
+import { TouchableOpacity } from 'react-native';
 import BootSplash from 'react-native-bootsplash';
-
+import { Text } from 'react-native-gesture-handler';
+import { StackNavProp } from '../types/routes';
+import { ROUTES, Stack } from './constants/route';
+import ScreenLoader from './Wrapper/ScreenLoader';
 const HomeScreen = React.lazy(() => import('./screens/HomeScreen'));
 const SheetScreen = React.lazy(() => import('./screens/SheetScreen'));
 
-import {ROUTES, Stack} from './constants/route';
-import {Button, Text, View} from 'react-native';
-import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import {StackParamList} from '../types/routes';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import ScreenLoader from './Wrapper/ScreenLoader';
-type Props = NativeStackScreenProps<StackParamList, typeof ROUTES.TABS.HOME>;
 const HomeHeaderLeft = () => {
-  const navigation = useNavigation<Props['navigation']>();
+  type Navigation = StackNavProp<'Home'>;
+  const navigation = useNavigation<Navigation>();
   return (
-    <Button
-      title="Go to Sheet"
-      onPress={() => navigation.navigate(ROUTES.STACK.SHEET)}
-    />
+    <TouchableOpacity onPress={() => navigation.navigate(ROUTES.STACK.HOME)}>
+      <Text>Go to Sheet</Text>
+    </TouchableOpacity>
   );
 };
 
 export default function MainApp() {
   useLayoutEffect(() => {
     BootSplash.hide({fade: true});
-    AsyncStorage.setItem('my-key', 'value');
   }, []);
 
   return (
@@ -34,7 +30,7 @@ export default function MainApp() {
         initialRouteName={ROUTES.STACK.HOME}
         screenOptions={{
           headerShadowVisible: false,
-          headerShown: true,
+          headerShown: false,
           headerTitleAlign: 'center',
           contentStyle: {backgroundColor: '#fff'},
         }}>
