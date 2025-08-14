@@ -1,23 +1,10 @@
-import { NavigationContainer, useNavigation } from '@react-navigation/native';
-import React, { useLayoutEffect } from 'react';
-import { TouchableOpacity } from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import React, {useLayoutEffect} from 'react';
 import BootSplash from 'react-native-bootsplash';
-import { Text } from 'react-native-gesture-handler';
-import { StackNavProp } from '../types/routes';
-import { ROUTES, Stack } from './constants/route';
 import ScreenLoader from './Wrapper/ScreenLoader';
+import {NavigationConfig} from './constants/route';
 const HomeScreen = React.lazy(() => import('./screens/HomeScreen'));
 const SheetScreen = React.lazy(() => import('./screens/SheetScreen'));
-
-const HomeHeaderLeft = () => {
-  type Navigation = StackNavProp<'Home'>;
-  const navigation = useNavigation<Navigation>();
-  return (
-    <TouchableOpacity onPress={() => navigation.navigate(ROUTES.STACK.HOME)}>
-      <Text>Go to Sheet</Text>
-    </TouchableOpacity>
-  );
-};
 
 export default function MainApp() {
   useLayoutEffect(() => {
@@ -26,36 +13,31 @@ export default function MainApp() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator
-        initialRouteName={ROUTES.STACK.HOME}
+      <NavigationConfig.Stack.Navigator
+        initialRouteName={NavigationConfig.getRoute('STACK.ROOT.HOME')}
         screenOptions={{
           headerShadowVisible: false,
           headerShown: false,
           headerTitleAlign: 'center',
           contentStyle: {backgroundColor: '#fff'},
         }}>
-        <Stack.Screen
-          name={ROUTES.STACK.HOME}
+        <NavigationConfig.Stack.Screen
+          name={NavigationConfig.getRoute('STACK.ROOT.HOME')}
           children={(props: any) => (
             <ScreenLoader>
               <HomeScreen {...props} />
             </ScreenLoader>
           )}
-          options={{
-            headerTitle: 'Home',
-
-            headerLeft: () => <HomeHeaderLeft />,
-          }}
         />
-        <Stack.Screen
-          name={ROUTES.STACK.SHEET}
+        <NavigationConfig.Stack.Screen
+          name={NavigationConfig.getRoute('STACK.ROOT.SHEET')}
           children={(props: any) => (
             <ScreenLoader>
               <SheetScreen {...props} />
             </ScreenLoader>
           )}
         />
-      </Stack.Navigator>
+      </NavigationConfig.Stack.Navigator>
     </NavigationContainer>
   );
 }

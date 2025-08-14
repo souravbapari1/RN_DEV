@@ -1,15 +1,15 @@
 // ErrorBoundary.tsx
 
-import React, { Component, ErrorInfo, ReactNode } from 'react';
+import React, {Component, ErrorInfo, ReactNode} from 'react';
 import {
   DevSettings,
   ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
-  View
+  View,
 } from 'react-native';
-import { explainAICodeError } from '../lib/ai';
+import {explainAICodeError} from '../shared/lib/ai';
 
 const ErrorReporting = {
   logErrorToMyService: (error: Error, errorInfo: ErrorInfo) => {
